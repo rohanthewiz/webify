@@ -1,6 +1,7 @@
 # webify
 
 A new Flutter project.
+![app screenshot](pics/raw_data.png?raw=true "App Screenshot")
 
 ## Getting Started
 

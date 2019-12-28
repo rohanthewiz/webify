@@ -56,11 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(_isLoading ? "Loading.." : _data),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(_isLoading ? "Loading.." : _data),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
