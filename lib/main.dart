@@ -27,6 +27,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _isLoading = false;
   var _data = "Not loaded";
+  var _apiURL =
+    'https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/subaru?format=json';
 
   void _fetchData() async {
     setState(() {
@@ -34,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
 
     print('Calling API...');
-    var response = await http.get('https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json'); //http://gonotes.net:9080/api/v1/l/15
+    var response = await http.get(_apiURL);
     if (response.statusCode == 200) {
       setState(() {
         _isLoading = false;
