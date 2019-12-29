@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _isLoading = false;
   var _data = "Not loaded";
   var _apiURL =
+    //  'http://localhost:8880/v1/auth/status';
     'https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/subaru?format=json';
 
   void _fetchData() async {
@@ -49,6 +51,18 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void _launchURL() async {
+    const url = 'https://flutter.io';
+    //html.window.console.log("Hi there");
+    //print(html.window.cookieStore.getAll());
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(_isLoading ? "Loading.." : _data),
+              Text(_isLoading ? "Loading..." : _data),
+              RaisedButton(child: Text("Get Data"),
+                onPressed: _fetchData,)
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _fetchData,
+        onPressed: _launchURL, // _fetchData, //
         tooltip: 'Get Data',
         child: Icon(Icons.cloud_download),
       ),
