@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _launchURL() async {
-    const url = 'https://flutter.io';
+    const url = 'https://flutter.io|abcdefg1234567';
     //html.window.console.log("Hi there");
     //print(html.window.cookieStore.getAll());
 
@@ -98,8 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _launchURL, // _fetchData, //
-        tooltip: 'Get Data',
-        child: Icon(Icons.cloud_download),
+        tooltip: 'Login',
+        child: Icon(Icons.navigate_next),
       ),
     );
   }
