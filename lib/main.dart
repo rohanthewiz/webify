@@ -151,17 +151,17 @@ class _MyHomePageState extends State<MyHomePage> {
               RaisedButton(child: Text("Get Data"),
                 onPressed: _fetchData,
               ),
-//              Expanded(
-//                child: CustomDataTable(
-//                  dataRows: _dataCore,
-//                  fixedColumn: _firstCol,
-//                  fixedRow: _firstRow,
-//                  cellBuilder: (data) {
-//                    return Text('$data', style: TextStyle(color: Colors.black45));
-//                  },
-//                ),
-//              ),
-
+              _firstRow.length < 1 ? Text("No Data") :
+              Expanded(
+                child: CustomDataTable(
+                  dataRows: _dataCore,
+                  fixedColumn: _firstCol,
+                  fixedRow: _firstRow,
+                  cellBuilder: (data) {
+                    return Text('$data', style: TextStyle(color: Colors.black45));
+                  },
+                ),
+              ),
             ],
           ),
         ),
