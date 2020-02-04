@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         for (var ct in lst) {
           if (_firstRow.length < 1) {
-            _firstRow.add(ct.Name);
+            //_firstRow.add(ct.Name);
             _firstRow.add(ct.Role);
             _firstRow.add(ct.Company);
             _firstRow.add(ct.Phone);
@@ -157,6 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   dataRows: _dataCore,
                   fixedColumn: _firstCol,
                   fixedRow: _firstRow,
+                  fixedCornerCell: "NAME",
                   cellBuilder: (data) {
                     return Text('$data', style: TextStyle(color: Colors.black45));
                   },

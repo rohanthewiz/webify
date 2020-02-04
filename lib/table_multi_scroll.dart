@@ -97,7 +97,7 @@ class CustomDataTableState<T> extends State<CustomDataTable<T>> {
       widget.fixedColumn == null || widget.fixedRow == null
           ? SizedBox.shrink()
           : Material(
-              color: Colors.amberAccent,
+              color: Colors.grey,
               child: DataTable(
                   horizontalMargin: widget.cellMargin,
                   columnSpacing: widget.cellSpacing,
