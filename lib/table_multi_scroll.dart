@@ -35,13 +35,18 @@ class CustomDataTableState<T> extends State<CustomDataTable<T>> {
   final _subTableYController = ScrollController();
   final _subTableXController = ScrollController();
 
+  // TODO find better place for this
+  Color hexToColor(String hexString, {String alphaChannel = 'FF'}) {
+    return Color(int.parse(hexString.replaceFirst('#', '0x$alphaChannel')));
+  }
+
   Widget _buildChild(double width, T data) => SizedBox(
       width: width, child: widget.cellBuilder?.call(data) ?? Text('$data'));
 
   Widget _buildFixedCol() => widget.fixedColumn == null
       ? SizedBox.shrink()
       : Material(
-          color: Colors.lightBlueAccent,
+          color: Colors.grey,
           child: DataTable(
               horizontalMargin: widget.cellMargin,
               columnSpacing: widget.cellSpacing,
@@ -76,7 +81,7 @@ class CustomDataTableState<T> extends State<CustomDataTable<T>> {
         );
 
   Widget _buildSubTable() => Material(
-      color: Colors.lightGreenAccent,
+      color: Colors.white70,
       child: DataTable(
           horizontalMargin: widget.cellMargin,
           columnSpacing: widget.cellSpacing,
@@ -97,7 +102,7 @@ class CustomDataTableState<T> extends State<CustomDataTable<T>> {
       widget.fixedColumn == null || widget.fixedRow == null
           ? SizedBox.shrink()
           : Material(
-              color: Colors.grey,
+              color: Colors.lightGreen,
               child: DataTable(
                   horizontalMargin: widget.cellMargin,
                   columnSpacing: widget.cellSpacing,
